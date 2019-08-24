@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Сравнение телефонов</h1>
+        </div>
+    </div>
+
+<table width="800">
+
+        <thead>
+            <tr>
+                <td> Производитель: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <th> {{object.name_of_manufacture}} </th>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Модель: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <th> {{object.name}} </th>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Цена: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.price}} руб. </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Операционная система: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.oper_sys}} </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Технология 4G (LTE): </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.lte_technology}} </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Разрешение дисплея: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.display}} </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Двойная камера: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.cam_2}} </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Объем встроенной памяти: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.ram}} Гб. </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td> Модуль NFC: </td>
+                {% for mark in objects %}
+                    {% for object in mark %}
+                        <td> {{object.phone.modul_nfc}} </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+        </tbody>
+
+</table>
+
+{% endblock %}
